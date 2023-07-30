@@ -1,0 +1,14 @@
+@import "../../styles/_vars"
+@import "../../styles/mixins/_media"
+@import "../../styles/mixins/_generics"
+header
+    background-color: $bg-secondary-color
+    color: $font-primary-color
+    nav
+        @include mobile
+        @include dflex-row-center
+        height: 70px
+        h1
+            @include font-ti-sm
+        a
+            @include font-p-sm

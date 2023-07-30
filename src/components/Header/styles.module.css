@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"); /*====================   Mobile   ====================*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"); /*--------------- POSITIONS ---------------*/
+/*--------------- FONTS ---------------*/
+header {
+  background-color: #2F2F2F;
+  color: #FFF;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+@media screen and (max-width: 576px) {
+  header nav {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+header nav h1 {
+  font-size: 20px;
+  font-weight: 700;
+}
+header nav a {
+  font-size: 12px;
+  font-weight: 400;
+}/*# sourceMappingURL=styles.module.css.map */
