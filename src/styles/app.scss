@@ -1,5 +1,4 @@
-@import "./vars.scss";
-@import "./mixins.scss";
+@import "./vars.scss", "./mixins.scss";
 
 * {
   @include ui-reset;
@@ -7,4 +6,18 @@
   body {
     background-color: $bg-primary-color;
   }
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  @include mobile;
+}
+
+.container {
+  @include mobile {
+    padding: 10px;
+  }
+
+  background-color: $bg-secondary-color;
 }

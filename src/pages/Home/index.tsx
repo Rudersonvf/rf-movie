@@ -1,3 +1,11 @@
+import CardFilter from "../../components/CardFilter";
+
 export default function Home() {
-  return <h1>Conteudo da HOME</h1>;
+  return (
+    <main>
+      <section className="container">
+        <CardFilter />
+      </section>
+    </main>
+  );
 }

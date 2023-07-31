@@ -1,0 +1,18 @@
+@import "../../styles/vars.scss", "../../styles/mixins.scss";
+
+.filter-card-container {
+  width: 100%;
+  .btn-search {
+    background-color: $bg-tertiary-color;
+    border-radius: 0 5px 5px 0;
+    width: 70px;
+    height: 40px;
+    .btn-icon {
+      color: $font-secondary-color;
+    }
+  }
+  .input-filter {
+    width: 100%;
+    height: 40px;
+  }
+}
