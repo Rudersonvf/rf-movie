@@ -1,0 +1,60 @@
+@import "./vars.scss";
+
+/*--------------- POSITIONS ---------------*/
+@mixin ui-reset {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: $font-primary;
+
+  a,
+  a:hover {
+    text-decoration: none;
+    color: unset;
+  }
+}
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin space-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*--------------- FONTS ---------------*/
+@mixin font-ti-sm {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@mixin font-p-sm {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/*--------------- MEDIA QUERIES ---------------*/
+@mixin mobile {
+  @media screen and (min-width: $screen-xm) {
+    width: 100%;
+    padding: 0 10px;
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $screen-lg) {
+    @content;
+  }
+}

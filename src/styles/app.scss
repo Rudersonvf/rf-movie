@@ -1,0 +1,10 @@
+@import "./vars.scss";
+@import "./mixins.scss";
+
+* {
+  @include ui-reset;
+  html,
+  body {
+    background-color: $bg-primary-color;
+  }
+}

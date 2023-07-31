@@ -1,0 +1,12 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+footer {
+  background-color: $bg-secondary-color;
+  color: $font-primary-color;
+  height: 50px;
+  @include center;
+  p {
+    font-size: 10px;
+  }
+}

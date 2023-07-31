@@ -1,0 +1,18 @@
+@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss";
+
+header {
+  background-color: $bg-secondary-color;
+  color: $font-primary-color;
+  nav {
+    @include mobile;
+    @include space-between-center;
+    height: 70px;
+  }
+  h1 {
+    @include font-ti-sm;
+  }
+  a {
+    @include font-p-sm;
+  }
+}
