@@ -15,9 +15,5 @@ main {
 }
 
 .container {
-  @include mobile {
-    padding: 10px;
-  }
-
-  background-color: $bg-secondary-color;
+  width: 100%;
 }

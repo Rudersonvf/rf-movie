@@ -1,18 +1,51 @@
 @import "../../styles/vars.scss", "../../styles/mixins.scss";
 
 .filter-card-container {
+  @include mobile {
+    padding: 10px;
+  }
   width: 100%;
-  .btn-search {
-    background-color: $bg-tertiary-color;
-    border-radius: 0 5px 5px 0;
-    width: 70px;
-    height: 40px;
-    .btn-icon {
-      color: $font-secondary-color;
+  background-color: $bg-secondary-color;
+  .filter-search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    .btn-search {
+      background-color: $bg-tertiary-color;
+      border-radius: 0 5px 5px 0;
+      width: 70px;
+      height: 40px;
+      .btn-icon {
+        color: $font-secondary-color;
+      }
+    }
+    .input-filter {
+      flex: 1;
+      height: 40px;
+      border-radius: 5px 0 0 5px;
+      padding: 0 5px;
+      outline: none;
+      border: none;
     }
   }
-  .input-filter {
-    width: 100%;
+}
+.filter-btn-container {
+  display: flex;
+  justify-content: space-between;
+  .filter-btn {
+    color: $font-secondary-color;
+    min-width: 130px;
+    max-width: 200px;
     height: 40px;
+    background-color: $bg-tertiary-color;
+    display: flex;
+    justify-content: start;
+    span {
+      font-size: 14px;
+      margin-left: 5px;
+    }
+  }
+  .filter-btn:hover {
+    background-color: $bg-tertiary-color;
   }
 }
