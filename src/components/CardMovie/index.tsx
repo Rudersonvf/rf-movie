@@ -14,7 +14,7 @@ export default function CardMovie({ movie, categories }: Props) {
   return (
     <div className="card-movie-container">
       <div className="card-img-container">
-        <img src={movie.imgUrl} alt={movie.title} />
+        <img src={movie.img_url} alt={movie.title} />
       </div>
       <div className="card-content-container">
         <h2>{movie.title}</h2>

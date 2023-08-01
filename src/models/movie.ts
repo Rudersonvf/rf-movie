@@ -2,7 +2,7 @@ import { CategoryDTO } from "./category"
 
 export type MovieDTO ={
     id:number
-    imgUrl:string
+    img_url:string
     title:string
     release:string
     director:string
