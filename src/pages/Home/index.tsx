@@ -1,8 +1,20 @@
+import { useEffect, useState } from "react";
 import CardFilter from "../../components/CardFilter";
 import CardMovie from "../../components/CardMovie";
+import * as movieService from "../../services/movie-service";
 import "./styles.component.scss";
+import { MovieDTO } from "../../models/movie";
 
 export default function Home() {
+  const [data, setData] = useState<MovieDTO[]>([]);
+
+  useEffect(() => {
+    movieService.findAll().then((response) => {
+      setData(response.data.content);
+    });
+  }),
+    [];
+
   return (
     <main>
       <section className="container">
@@ -13,10 +25,13 @@ export default function Home() {
       </section>
       <section className="container">
         <div className="movie-result-container">
-          <CardMovie />
-          <CardMovie />
-          <CardMovie />
-          <CardMovie />
+          {data.map((movie) => (
+            <CardMovie
+              key={movie.id}
+              movie={movie}
+              categories={movie.categories}
+            />
+          ))}
         </div>
       </section>
     </main>

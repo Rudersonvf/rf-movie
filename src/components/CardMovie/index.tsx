@@ -1,36 +1,29 @@
 import "./styles.component.scss";
-import img from "../../assets/lotr 1.png";
 import CardCategory from "../CardCategory";
+import { MovieDTO } from "../../models/movie";
+import { CategoryDTO } from "../../models/category";
 
-export default function CardMovie() {
+type Props = {
+  movie: MovieDTO;
+  categories: CategoryDTO[];
+};
+
+export default function CardMovie({ movie, categories }: Props) {
+  console.log(movie);
+
   return (
     <div className="card-movie-container">
       <div className="card-img-container">
-        <img src={img} alt="movie" />
+        <img src={movie.imgUrl} alt={movie.title} />
       </div>
       <div className="card-content-container">
-        <h2>Titulo</h2>
-        <p>data-data-data</p>
-        <p>Direção: dirertor</p>
+        <h2>{movie.title}</h2>
+        <p>Ano: {movie.release}</p>
+        <p>Direção: {movie.director}</p>
         <div className="card-categories-container">
-          <CardCategory
-            category={{
-              id: 1,
-              name: "Ação",
-            }}
-          />
-          <CardCategory
-            category={{
-              id: 2,
-              name: "Aventura",
-            }}
-          />
-          <CardCategory
-            category={{
-              id: 3,
-              name: "Fantasia",
-            }}
-          />
+          {categories.map((category) => (
+            <CardCategory key={category.id} category={category} />
+          ))}
         </div>
       </div>
     </div>

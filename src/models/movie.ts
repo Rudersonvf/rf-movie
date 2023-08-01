@@ -1,9 +1,10 @@
 import { CategoryDTO } from "./category"
 
 export type MovieDTO ={
+    id:number
     imgUrl:string
     title:string
-    release:Date
+    release:string
     director:string
     categories:CategoryDTO[]
 }
