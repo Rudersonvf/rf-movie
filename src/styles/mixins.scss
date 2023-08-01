@@ -19,12 +19,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @content;
 }
 
 @mixin space-between-center {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@mixin max-width {
+  max-width: 1066px;
+  margin: 0 auto;
 }
 
 /*--------------- FONTS ---------------*/
@@ -47,8 +53,18 @@
   }
 }
 
-@mixin tablet {
+@mixin tablet-sm {
   @media screen and (min-width: $screen-sm) {
+    width: 100%;
+    padding: 35px 60px;
+    @content;
+  }
+}
+
+@mixin tablet-md {
+  @media screen and (min-width: $screen-md) {
+    width: 100%;
+    padding: 35px 60px;
     @content;
   }
 }

@@ -3,6 +3,20 @@
 .filter-card-container {
   @include mobile {
     padding: 10px;
+    gap: 20px;
+    .filter-search-container {
+      margin-bottom: 10px;
+    }
+  }
+  @include tablet-md {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    .filter-search-container {
+      margin-bottom: 0;
+      width: 100%;
+    }
   }
   width: 100%;
   background-color: $bg-secondary-color;
@@ -10,7 +24,6 @@
   .filter-search-container {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
 
     .btn-search {
       background-color: $bg-tertiary-color;
@@ -25,7 +38,7 @@
       flex: 1;
       height: 40px;
       border-radius: 5px 0 0 5px;
-      padding: 0 5px;
+      padding: 0 10px;
       outline: none;
       border: none;
     }
@@ -34,9 +47,11 @@
 .filter-btn-container {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
   .filter-btn {
     color: $font-secondary-color;
     min-width: 130px;
+    width: 100%;
     max-width: 200px;
     height: 40px;
     background-color: $bg-tertiary-color;

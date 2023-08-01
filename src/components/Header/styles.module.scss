@@ -4,14 +4,24 @@ header {
   background-color: $bg-secondary-color;
   color: $font-primary-color;
   nav {
+    @include max-width;
     @include mobile;
+    @include tablet-sm;
     @include space-between-center;
     height: 70px;
   }
   h1 {
     @include font-ti-sm;
+    @include tablet-md {
+      padding: 0;
+      font-size: 24px;
+    }
   }
   a {
     @include font-p-sm;
+    @include tablet-md {
+      padding: 0;
+      font-size: 16px;
+    }
   }
 }

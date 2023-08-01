@@ -7,5 +7,10 @@ footer {
   @include center;
   p {
     font-size: 10px;
+    @include tablet-md {
+      @include center;
+      padding: 0;
+      font-size: 12px;
+    }
   }
 }

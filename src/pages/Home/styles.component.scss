@@ -1,5 +1,4 @@
-@import "../../styles/mixins.scss";
-@import "../../styles/vars.scss";
+@import "../../styles/mixins.scss", "../../styles/vars.scss";
 
 .result-count-container {
   margin-top: 10px;
@@ -11,5 +10,15 @@
   p {
     color: $font-primary-color;
     font-size: 14px;
+  }
+}
+
+.movie-result-container {
+  @include center;
+  flex-wrap: wrap;
+  gap: 10px;
+  @include tablet-sm {
+    padding: 0;
+    gap: 20px;
   }
 }
