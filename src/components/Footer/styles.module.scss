@@ -1,0 +1,16 @@
+@import "../../styles/vars.scss", "../../styles/mixins.scss";
+
+footer {
+  background-color: $bg-secondary-color;
+  color: $font-primary-color;
+  height: 50px;
+  @include center;
+  p {
+    font-size: 10px;
+    @include tablet-md {
+      @include center;
+      padding: 0;
+      font-size: 12px;
+    }
+  }
+}

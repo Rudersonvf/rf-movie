@@ -5,13 +5,6 @@ import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
 
 export default function CardFilter() {
-  const options = [
-    { label: "Ação", id: 1 },
-    { label: "Aventura", id: 2 },
-    { label: "Fantasia", id: 3 },
-    { label: "Sci-Fi", id: 4 },
-  ];
-
   return (
     <div className={styles["filter-card-container"]}>
       <div className={styles["filter-search-container"]}>
