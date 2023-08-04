@@ -5,21 +5,41 @@ import * as movieService from "../../services/movie-service";
 import style from "./styles.module.scss";
 import { MovieDTO } from "../../models/movie";
 
+type QueryParams = {
+  movieName: string;
+};
+
 export default function Home() {
   const [movies, setMovies] = useState<MovieDTO[]>([]);
+  const [queryParams, setQueryParams] = useState<QueryParams>({
+    movieName: "",
+  });
 
   useEffect(() => {
-    movieService.findAll().then((response) => {
-      setMovies(response.data.content);
+    movieService
+      .findByName(queryParams.movieName)
+      .then((filteredMovies) => setMovies(filteredMovies))
+      .catch((error) => {
+        console.error("Erro ao buscar filmes:", error);
+      });
+  }, [queryParams]);
+
+  async function handleFilter(nameValue: string): Promise<void> {
+    setQueryParams({
+      movieName: nameValue || "",
     });
-  }, []);
+  }
 
   return (
     <main>
       <section className={style["container"]}>
-        <CardFilter />
+        <CardFilter onFilter={handleFilter} />
         <div className={style["result-count-container"]}>
-          <p>Exibindo 2 resultados</p>
+          {!movies.length ? (
+            <p>Sem resultados para a pesquisa</p>
+          ) : (
+            <p>Exibindo {movies.length} resultados</p>
+          )}
         </div>
       </section>
       <section className="container">
