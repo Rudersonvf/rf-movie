@@ -3,14 +3,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import styles from "./styles.module.scss";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
+import * as movieService from "../../services/movie-service";
 import { useState } from "react";
+import { MovieDTO } from "../../models/movie";
 
 type FormData = {
   inptName?: string;
 };
 
 type Props = {
-  onFilter: (movieName: string) => Promise<void>; // Atualização na definição da prop onFilter
+  onFilter: Function;
 };
 
 export default function CardFilter({ onFilter }: Props) {
@@ -24,11 +26,7 @@ export default function CardFilter({ onFilter }: Props) {
 
   function handleSubmit(event: any) {
     event.preventDefault();
-    setFormData(formData);
-    console.log(formData);
-
-    // Chame a função onFilter passando o valor de formData.inptName
-    onFilter(formData.inptName || "");
+    onFilter(formData.inptName);
   }
 
   return (
@@ -39,8 +37,8 @@ export default function CardFilter({ onFilter }: Props) {
       >
         <input
           className={styles["input-filter"]}
+          value={formData?.inptName || ""}
           name="inptName"
-          value={formData.inptName || ""}
           type="text"
           placeholder="Digite sua busca"
           onChange={handleChange}

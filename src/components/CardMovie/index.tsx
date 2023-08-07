@@ -1,14 +1,12 @@
 import style from "./styles.module.scss";
 import CardCategory from "../CardCategory";
 import { MovieDTO } from "../../models/movie";
-import { CategoryDTO } from "../../models/category";
 
 type Props = {
   movie: MovieDTO;
-  categories: CategoryDTO[];
 };
 
-export default function CardMovie({ movie, categories }: Props) {
+export default function CardMovie({ movie }: Props) {
   console.log(movie);
 
   return (
@@ -21,7 +19,7 @@ export default function CardMovie({ movie, categories }: Props) {
         <p>Ano: {movie.release}</p>
         <p>Direção: {movie.director}</p>
         <div className={style["card-categories-container"]}>
-          {categories.map((category) => (
+          {movie.categories.map((category) => (
             <CardCategory key={category.id} category={category} />
           ))}
         </div>

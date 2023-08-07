@@ -1,32 +1,34 @@
 import { useEffect, useState } from "react";
+import CardCount from "../../components/CardCount";
 import CardFilter from "../../components/CardFilter";
-import CardMovie from "../../components/CardMovie";
 import * as movieService from "../../services/movie-service";
 import style from "./styles.module.scss";
 import { MovieDTO } from "../../models/movie";
+import CardMovie from "../../components/CardMovie";
 
 type QueryParams = {
-  movieName: string;
+  name: string;
 };
 
 export default function Home() {
   const [movies, setMovies] = useState<MovieDTO[]>([]);
   const [queryParams, setQueryParams] = useState<QueryParams>({
-    movieName: "",
+    name: "",
   });
 
   useEffect(() => {
-    movieService
-      .findByName(queryParams.movieName)
-      .then((filteredMovies) => setMovies(filteredMovies))
-      .catch((error) => {
-        console.error("Erro ao buscar filmes:", error);
-      });
+    const filter = movieService.findAll();
+    setMovies(filter);
+  }, []);
+
+  useEffect(() => {
+    const onFilter = movieService.findByName(queryParams.name);
+    setMovies(onFilter);
   }, [queryParams]);
 
-  async function handleFilter(nameValue: string): Promise<void> {
+  function handleFilter(nameValue: string) {
     setQueryParams({
-      movieName: nameValue || "",
+      name: nameValue || "",
     });
   }
 
@@ -34,22 +36,12 @@ export default function Home() {
     <main>
       <section className={style["container"]}>
         <CardFilter onFilter={handleFilter} />
-        <div className={style["result-count-container"]}>
-          {!movies.length ? (
-            <p>Sem resultados para a pesquisa</p>
-          ) : (
-            <p>Exibindo {movies.length} resultados</p>
-          )}
-        </div>
+        <CardCount />
       </section>
       <section className="container">
         <div className={style["movie-result-container"]}>
           {movies.map((movie) => (
-            <CardMovie
-              key={movie.id}
-              movie={movie}
-              categories={movie.categories}
-            />
+            <CardMovie key={movie.id} movie={movie} />
           ))}
         </div>
       </section>
