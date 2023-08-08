@@ -1,0 +1,14 @@
+@import "../../styles/vars.scss", "../../styles/mixins.scss";
+
+.category-container {
+  padding: 0 7px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: $bg-primary-color;
+  @include center;
+  h3 {
+    font-size: 10px;
+    font-weight: 400;
+    color: $font-primary-color;
+  }
+}

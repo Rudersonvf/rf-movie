@@ -10,10 +10,21 @@
 
 main {
   width: 100%;
+  @include max-width;
   min-height: 100vh;
-  @include mobile;
+  display: flex;
+  flex-direction: column;
+  @include mobile {
+    gap: 10px;
+  }
+  @include tablet-sm {
+    gap: 35px;
+  }
 }
 
 .container {
   width: 100%;
+  @include center {
+    flex-direction: column;
+  }
 }
