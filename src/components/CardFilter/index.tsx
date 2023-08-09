@@ -3,9 +3,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import styles from "./styles.module.scss";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
-import * as movieService from "../../services/movie-service";
 import { useState } from "react";
-import { MovieDTO } from "../../models/movie";
 
 type FormData = {
   inptName?: string;
